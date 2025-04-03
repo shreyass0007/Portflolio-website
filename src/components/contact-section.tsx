@@ -192,16 +192,16 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32">
+    <section id="contact" className="py-12 sm:py-16 md:py-24 lg:py-32">
       <div className="container max-w-7xl px-4">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold">Get In Touch</h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Get In Touch</h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Have a question, project, or collaboration in mind? Let's talk!
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -209,7 +209,7 @@ export function ContactSection() {
             transition={{ duration: 0.5 }}
             className="space-y-8"
           >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               <div className="space-y-2">
                 <Input
                   type="text"
@@ -283,7 +283,7 @@ export function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-500 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-600 text-white transition-colors"
+                className="w-full bg-blue-500 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-600 text-white transition-all active:scale-[0.98] touch-manipulation py-6 sm:py-4"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -317,14 +317,14 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative order-first lg:order-last"
+            className="relative order-first lg:order-last mt-8 lg:mt-0"
           >
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-transparent dark:from-blue-900/10 dark:to-transparent rounded-2xl" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent dark:from-blue-900/20 dark:via-transparent dark:to-transparent rounded-2xl" />
             
             {/* Content container */}
-            <div className="relative space-y-8 p-6 sm:p-8 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-white/5 bg-white/50 dark:bg-gray-900/50">
+            <div className="relative space-y-6 sm:space-y-8 p-4 sm:p-6 md:p-8 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-white/5 bg-white/50 dark:bg-gray-900/50">
               {/* Contact info */}
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
@@ -338,11 +338,11 @@ export function ContactSection() {
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/80 dark:hover:bg-gray-800/50 transition-colors group"
+                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/80 dark:hover:bg-gray-800/50 active:scale-[0.98] transition-all touch-manipulation group"
                     >
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
-                          <item.icon className="w-5 h-5" />
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                          <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                       </div>
                       <div className="flex-grow">

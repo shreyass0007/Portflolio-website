@@ -61,13 +61,13 @@ export function TestimonialsSection() {
   }, [emblaApi, onSelect])
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-background dark:to-background relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-background dark:to-background relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 dark:from-blue-500/10 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-50/40 dark:from-blue-400/10 via-transparent to-transparent" />
       
       <div className="container px-4 md:px-6 relative">
-        <div className="flex flex-col items-center justify-center text-center mb-12">
+        <div className="flex flex-col items-center justify-center text-center mb-8 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export function TestimonialsSection() {
                 <Quote className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </motion.span>
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 text-gray-900 dark:text-white bg-clip-text">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-3 md:mb-4 text-gray-900 dark:text-white bg-clip-text">
               Client Testimonials
             </h2>
             <p className="text-gray-600 dark:text-gray-400 md:text-lg max-w-[600px] mx-auto">
@@ -100,7 +100,7 @@ export function TestimonialsSection() {
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: canScrollPrev ? 1 : 0 }}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 p-2 rounded-full bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-110 shadow-sm"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 p-3 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 active:scale-95 touch-manipulation shadow-sm"
               onClick={scrollPrev}
               disabled={!canScrollPrev}
               aria-label="Previous testimonial"
@@ -111,7 +111,7 @@ export function TestimonialsSection() {
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: canScrollNext ? 1 : 0 }}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 p-2 rounded-full bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-110 shadow-sm"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 p-3 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 active:scale-95 touch-manipulation shadow-sm"
               onClick={scrollNext}
               disabled={!canScrollNext}
               aria-label="Next testimonial"
@@ -131,9 +131,9 @@ export function TestimonialsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative group flex-[0_0_100%] min-w-0 md:w-full md:min-h-[320px]"
+                    className="relative group flex-[0_0_100%] min-w-0 md:w-full min-h-[280px] md:min-h-[320px]"
                   >
-                    <div className="relative h-full p-6 bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-800/50 rounded-xl transition-all duration-300 
+                    <div className="relative h-full p-4 md:p-6 bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-800/50 rounded-xl transition-all duration-300 
                       shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-none
                       group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:group-hover:shadow-xl dark:group-hover:shadow-blue-500/10 
                       group-hover:border-blue-500/50 dark:group-hover:border-blue-500/50 
@@ -147,13 +147,13 @@ export function TestimonialsSection() {
 
                       {/* Testimonial Content */}
                       <div className="mb-6 pt-2">
-                        <p className="text-gray-600 dark:text-gray-300 italic leading-relaxed line-clamp-4 min-h-[96px]">
+                        <p className="text-gray-600 dark:text-gray-300 italic leading-relaxed text-sm md:text-base line-clamp-4 min-h-[84px] md:min-h-[96px]">
                           "{testimonial.content}"
                         </p>
                       </div>
 
                       {/* Author Info */}
-                      <div className="absolute bottom-6 left-6 right-6">
+                      <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
                         <div className="flex items-center gap-4">
                           <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200/80 dark:border-gray-800/50 group-hover:border-blue-500/50 transition-colors duration-300 shadow-lg flex-shrink-0">
                             <Image

@@ -368,44 +368,52 @@ export function HeroSection() {
             </motion.div>
 
             {/* Floating blocks */}
-            <div className="absolute inset-0 pointer-events-none hidden sm:block overflow-hidden">
-              <FloatingBlock className="absolute top-[5%] left-[5%] max-w-[200px] sm:max-w-[250px]" delay={0.6}>
-                <div className="space-y-0.5 sm:space-y-1">
-                  <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{'const skills = ['}</div>
-                  <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Python', 'TensorFlow', 'scikit-learn'"}</div>
-                  <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Pandas', 'Matplotlib', 'Hugging Face'"}</div>
-                  <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Streamlit', 'Flask'"}</div>
-                  <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{']'}</div>
-                </div>
-              </FloatingBlock>
+<div className="absolute inset-0 pointer-events-none hidden sm:block overflow-visible">
+  <div className="relative w-full h-full">
+    
+    {/* Skills Code Block */}
+    <FloatingBlock className="absolute top-[5%] right-[45%] sm:right-[50%] lg:right-[55%] max-w-[160px] sm:max-w-[180px] lg:max-w-[220px] z-10" delay={0.6}>
+      <div className="space-y-0.5 sm:space-y-1">
+        <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{'const skills = ['}</div>
+        <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Python', 'TensorFlow', 'scikit-learn'"}</div>
+        <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Pandas', 'Matplotlib', 'Hugging Face'"}</div>
+        <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Streamlit', 'Flask'"}</div>
+        <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{']'}</div>
+      </div>
+    </FloatingBlock>
 
-              <FloatingBlock className="absolute top-[5%] right-[5%] max-w-[180px] sm:max-w-[220px]" delay={0.7}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentAIIndex}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="space-y-1"
-                  >
-                    <div className="font-semibold text-purple-600 dark:text-purple-400">
-                      {aiSpecialties[currentAIIndex].title}
-                    </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-sm">
-                      {aiSpecialties[currentAIIndex].description}
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </FloatingBlock>
+    {/* Generative AI Block */}
+    <FloatingBlock className="absolute top-[35%] left-[55%] sm:left-[60%] lg:left-[65%] max-w-[140px] sm:max-w-[160px] lg:max-w-[200px] z-20" delay={0.7}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentAIIndex}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="space-y-1 transform rotate-[3deg]"
+        >
+          <div className="font-semibold text-purple-600 dark:text-purple-400">
+            {aiSpecialties[currentAIIndex].title}
+          </div>
+          <div className="text-gray-600 dark:text-gray-400 text-sm">
+            {aiSpecialties[currentAIIndex].description}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </FloatingBlock>
 
-              <FloatingBlock className="absolute bottom-[10%] left-[35%] max-w-[160px] sm:max-w-[200px]" delay={0.8}>
-                <div className="space-y-0.5 sm:space-y-1">
-                  <div className="font-semibold text-blue-600 dark:text-primary">Cloud Native</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Building scalable solutions</div>
-                </div>
-              </FloatingBlock>
-            </div>
+    {/* Cloud Native Block */}
+    <FloatingBlock className="absolute -bottom-[15%] right-[25%] sm:right-[30%] lg:right-[35%] max-w-[130px] sm:max-w-[150px] lg:max-w-[180px] z-30" delay={0.8}>
+      <div className="space-y-0.5 sm:space-y-1">
+        <div className="font-semibold text-blue-600 dark:text-primary">Cloud Native</div>
+        <div className="text-gray-600 dark:text-gray-400 text-sm">Building scalable solutions</div>
+      </div>
+    </FloatingBlock>
+
+  </div>
+</div>
+
           </div>
         </div>
       </div>
