@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circles -->
+  <circle cx="400" cy="400" r="300" fill="url(#gradient1)" opacity="0.1"/>
+  <circle cx="400" cy="400" r="250" stroke="url(#gradient2)" stroke-width="2" opacity="0.2"/>
+  
+  <!-- Code Window -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="200" width="400" height="300" rx="8" fill="#1E1E1E"/>
+    <rect x="200" y="200" width="400" height="40" rx="8" fill="#2D2D2D"/>
+    <!-- Window Controls -->
+    <circle cx="225" cy="220" r="6" fill="#FF5F56"/>
+    <circle cx="245" cy="220" r="6" fill="#FFBD2E"/>
+    <circle cx="265" cy="220" r="6" fill="#27C93F"/>
+    
+    <!-- Code Lines -->
+    <rect x="220" y="260" width="120" height="12" rx="2" fill="#569CD6" opacity="0.7"/>
+    <rect x="220" y="290" width="200" height="12" rx="2" fill="#4EC9B0" opacity="0.7"/>
+    <rect x="220" y="320" width="160" height="12" rx="2" fill="#CE9178" opacity="0.7"/>
+    <rect x="220" y="350" width="180" height="12" rx="2" fill="#DCDCAA" opacity="0.7"/>
+    <rect x="220" y="380" width="140" height="12" rx="2" fill="#9CDCFE" opacity="0.7"/>
+    <rect x="220" y="410" width="160" height="12" rx="2" fill="#B5CEA8" opacity="0.7"/>
+    
+    <!-- Cursor -->
+    <rect x="220" y="440" width="2" height="16" fill="#007ACC">
+      <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Floating Elements -->
+  <g>
+    <!-- React Logo -->
+    <g transform="translate(550,300) rotate(15)">
+      <circle cx="0" cy="0" r="20" fill="#61DAFB" opacity="0.2"/>
+      <ellipse cx="0" cy="0" rx="40" ry="15" stroke="#61DAFB" stroke-width="4" opacity="0.3">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="10s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="0" cy="0" rx="40" ry="15" stroke="#61DAFB" stroke-width="4" opacity="0.3" transform="rotate(60)">
+        <animateTransform attributeName="transform" type="rotate" from="60" to="420" dur="10s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="0" cy="0" rx="40" ry="15" stroke="#61DAFB" stroke-width="4" opacity="0.3" transform="rotate(120)">
+        <animateTransform attributeName="transform" type="rotate" from="120" to="480" dur="10s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- Node.js Logo -->
+    <g transform="translate(180,500)">
+      <path d="M20 0L40 11.5V34.5L20 46L0 34.5V11.5L20 0Z" fill="#539E43" opacity="0.8"/>
+    </g>
+
+    <!-- TypeScript Logo -->
+    <g transform="translate(600,450)">
+      <rect width="40" height="40" rx="4" fill="#3178C6" opacity="0.8"/>
+      <text x="8" y="28" fill="white" font-family="Arial" font-weight="bold" font-size="24">TS</text>
+    </g>
+
+    <!-- Decorative Dots -->
+    <g>
+      <circle cx="150" cy="250" r="4" fill="#61DAFB" opacity="0.5"/>
+      <circle cx="650" cy="250" r="4" fill="#61DAFB" opacity="0.5"/>
+      <circle cx="400" cy="150" r="4" fill="#61DAFB" opacity="0.5"/>
+      <circle cx="400" cy="650" r="4" fill="#61DAFB" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Gradients and Filters -->
+  <defs>
+    <linearGradient id="gradient1" x1="0" y1="0" x2="800" y2="800">
+      <stop offset="0%" stop-color="#3178C6"/>
+      <stop offset="100%" stop-color="#61DAFB"/>
+    </linearGradient>
+    
+    <linearGradient id="gradient2" x1="0" y1="0" x2="800" y2="800">
+      <stop offset="0%" stop-color="#61DAFB"/>
+      <stop offset="100%" stop-color="#539E43"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+</svg>
