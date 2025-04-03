@@ -173,7 +173,7 @@ export function HeroSection() {
   if (!mounted) return null
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-16 sm:py-20 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric pattern */}
@@ -230,9 +230,9 @@ export function HeroSection() {
               </motion.div>
 
               {/* Main heading */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <motion.h1 
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
+                  className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -266,7 +266,7 @@ export function HeroSection() {
 
               {/* CTA Buttons */}
               <motion.div 
-                className="flex flex-wrap gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -343,7 +343,7 @@ export function HeroSection() {
           <div className="w-full lg:w-1/2 relative">
             {/* Profile image */}
             <motion.div 
-              className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto"
+              className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -368,18 +368,18 @@ export function HeroSection() {
             </motion.div>
 
             {/* Floating blocks */}
-            <div className="absolute inset-0 pointer-events-none">
-              <FloatingBlock className="absolute top-[0%] left-[0%] max-w-[250px]" delay={0.6}>
-                <div className="space-y-1">
-                  <div className="font-mono text-blue-600 dark:text-primary text-sm">{'const skills = ['}</div>
-                  <div className="font-mono pl-4 text-gray-800 dark:text-gray-200 text-sm">{"'Python', 'TensorFlow', 'scikit-learn'"}</div>
-                  <div className="font-mono pl-4 text-gray-800 dark:text-gray-200 text-sm">{"'Pandas', 'Matplotlib', 'Hugging Face'"}</div>
-                  <div className="font-mono pl-4 text-gray-800 dark:text-gray-200 text-sm">{"'Streamlit', 'Flask'"}</div>
-                  <div className="font-mono text-blue-600 dark:text-primary text-sm">{']'}</div>
+            <div className="absolute inset-0 pointer-events-none hidden sm:block overflow-hidden">
+              <FloatingBlock className="absolute top-[5%] left-[5%] max-w-[200px] sm:max-w-[250px]" delay={0.6}>
+                <div className="space-y-0.5 sm:space-y-1">
+                  <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{'const skills = ['}</div>
+                  <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Python', 'TensorFlow', 'scikit-learn'"}</div>
+                  <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Pandas', 'Matplotlib', 'Hugging Face'"}</div>
+                  <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Streamlit', 'Flask'"}</div>
+                  <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{']'}</div>
                 </div>
               </FloatingBlock>
 
-              <FloatingBlock className="absolute top-[0%] right-[0%] max-w-[220px]" delay={0.7}>
+              <FloatingBlock className="absolute top-[5%] right-[5%] max-w-[180px] sm:max-w-[220px]" delay={0.7}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentAIIndex}
@@ -399,8 +399,8 @@ export function HeroSection() {
                 </AnimatePresence>
               </FloatingBlock>
 
-              <FloatingBlock className="absolute bottom-[5%] left-[35%] max-w-[200px]" delay={0.8}>
-                <div className="space-y-1">
+              <FloatingBlock className="absolute bottom-[10%] left-[35%] max-w-[160px] sm:max-w-[200px]" delay={0.8}>
+                <div className="space-y-0.5 sm:space-y-1">
                   <div className="font-semibold text-blue-600 dark:text-primary">Cloud Native</div>
                   <div className="text-gray-600 dark:text-gray-400 text-sm">Building scalable solutions</div>
                 </div>

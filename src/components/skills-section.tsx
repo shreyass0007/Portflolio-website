@@ -135,7 +135,7 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-3 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
@@ -145,20 +145,20 @@ export function SkillsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="h-full bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl shadow-black/5 dark:shadow-black/10 border border-gray-200/50 dark:border-white/5 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/20 hover:border-blue-500/20 dark:hover:border-blue-500/10">
+              <div className="h-full bg-white dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl shadow-black/5 dark:shadow-black/10 border border-gray-200/50 dark:border-white/5 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/20 hover:border-blue-500/20 dark:hover:border-blue-500/10">
                 <div className="flex flex-col items-center text-center">
-                  <skill.icon className={`w-12 h-12 mb-4 ${skill.color} transition-transform duration-300 group-hover:scale-110`} />
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <skill.icon className={`w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 ${skill.color} transition-transform duration-300 group-hover:scale-110`} />
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-1.5 sm:mb-2">
                     {skill.name}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     {skill.description}
                   </p>
                 </div>
               </div>
               
               {/* Tooltip */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-max max-w-[200px] px-3 py-2 bg-gray-900 dark:bg-gray-800 text-white text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:-translate-y-0 pointer-events-none z-50 shadow-xl">
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-max max-w-[200px] px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-900 dark:bg-gray-800 text-white text-xs sm:text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:-translate-y-0 pointer-events-none z-50 shadow-xl">
                 {skill.tooltip}
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 transform rotate-45"></div>
               </div>

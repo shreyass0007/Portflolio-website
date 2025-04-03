@@ -15,6 +15,16 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    optimizeFonts: true,
+    optimizeImages: true,
+  },
+  // Improve production performance
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Enable static optimization where possible
+  staticPageGenerationTimeout: 120,
 };
 
 module.exports = nextConfig;

@@ -122,13 +122,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured = false, in
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group h-full"
     >
-      <div className="relative h-full p-6 bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-800/50 rounded-xl transition-all duration-300 
+      <div className="relative h-full p-4 sm:p-6 bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-800/50 rounded-xl transition-all duration-300 
         shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-none
         group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:group-hover:shadow-xl dark:group-hover:shadow-blue-500/10 
         group-hover:border-blue-500/50 dark:group-hover:border-blue-500/50 
         group-hover:-translate-y-1 flex flex-col">
         {/* Project Image */}
-        <div className="aspect-[16/9] relative mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-800/50 group-hover:border-blue-500/50 transition-colors">
+        <div className="aspect-[16/9] relative mb-4 sm:mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-800/50 group-hover:border-blue-500/50 transition-colors">
           {imageLoading && (
             <Skeleton className="absolute inset-0 z-10" />
           )}
@@ -146,7 +146,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured = false, in
         </div>
 
         {/* Project Content */}
-        <div className="flex-1 flex flex-col min-h-[280px]">
+        <div className="flex-1 flex flex-col min-h-[240px] sm:min-h-[280px]">
           {/* Title and Links */}
           <div className="mb-4">
             <div className="flex items-start justify-between gap-4">
@@ -306,7 +306,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-2 pt-4"
+            className="flex flex-wrap justify-center gap-2 pt-4 px-2"
           >
             {categories.map((category) => (
               <motion.button
@@ -314,7 +314,7 @@ export const ProjectsSection = () => {
                 onClick={() => setActiveCategory(category)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
@@ -352,7 +352,7 @@ export const ProjectsSection = () => {
 
           {/* Carousel */}
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6 sm:gap-8">
+            <div className="flex gap-4 sm:gap-6 lg:gap-8">
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.title}
@@ -364,7 +364,7 @@ export const ProjectsSection = () => {
                     duration: 0.3,
                     delay: index * 0.1
                   }}
-                  className="flex-[0_0_100%] sm:flex-[0_0_calc(50%-16px)] lg:flex-[0_0_calc(33.333%-22px)] min-w-0"
+                  className="flex-[0_0_85%] sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-22px)] min-w-0"
                 >
                   <ProjectCard project={project} index={index} />
                 </motion.div>

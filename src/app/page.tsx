@@ -26,10 +26,10 @@ export default function Home() {
   const { isMobile } = useResponsive()
 
   return (
-    <main className="relative w-full overflow-x-hidden">
+    <main className="relative w-full overflow-x-hidden bg-background">
       <Navbar />
       
-      <div className="px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-24">
         <ErrorBoundary>
           <HeroSection />
         </ErrorBoundary>
