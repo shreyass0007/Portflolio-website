@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from 'framer-motion'
+import React from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import {
   SiReact,
@@ -18,7 +19,34 @@ import {
 } from 'react-icons/si'
 
 export function SkillsSection() {
-  const skills = [
+  // Always default to AI/ML skills
+  const [activeTab, setActiveTab] = React.useState<'aiml' | 'webdev' | 'other'>('aiml')
+
+  // Define category configurations
+  const categories = [
+    {
+      id: 'aiml',
+      label: 'AI/ML',
+      icon: <span className="text-2xl"></span>,
+      activeColor: 'text-blue-600 dark:text-blue-400',
+      hoverColor: 'hover:text-blue-500 dark:hover:text-blue-300'
+    },
+    {
+      id: 'webdev',
+      label: 'Web Dev',
+      icon: <span className="text-2xl"></span>,
+      activeColor: 'text-purple-600 dark:text-purple-400',
+      hoverColor: 'hover:text-purple-500 dark:hover:text-purple-300'
+    },
+    {
+      id: 'other',
+      label: 'Other',
+      icon: <span className="text-2xl"></span>,
+      activeColor: 'text-indigo-600 dark:text-indigo-400',
+      hoverColor: 'hover:text-indigo-500 dark:hover:text-indigo-300'
+    }
+  ]
+  const webDevSkills = [
     {
       name: 'React',
       icon: SiReact,
@@ -67,7 +95,27 @@ export function SkillsSection() {
       description: 'Working with NoSQL databases for flexible data storage',
       color: 'text-[#47A248] dark:text-[#47A248]/90',
       tooltip: 'Experienced with MongoDB Atlas and Mongoose ODM'
+    }
+  ]
+
+  const otherSkills = [
+    {
+      name: 'Java',
+      icon: SiOpenjdk,
+      description: 'Object-oriented programming and enterprise applications',
+      color: 'text-[#007396] dark:text-[#007396]/90',
+      tooltip: 'Enterprise application development and Spring Boot'
     },
+    {
+      name: 'DSA in C++',
+      icon: SiCplusplus,
+      description: 'Data Structures and Algorithms implementation',
+      color: 'text-[#00599C] dark:text-[#00599C]/90',
+      tooltip: 'Competitive programming and system design'
+    }
+  ]
+
+  const aiMlSkills = [
     {
       name: 'Python',
       icon: SiPython,
@@ -89,20 +137,7 @@ export function SkillsSection() {
       color: 'text-[#EE4C2C] dark:text-[#EE4C2C]/90',
       tooltip: 'Deep learning research and computer vision projects'
     },
-    {
-      name: 'Java',
-      icon: SiOpenjdk,
-      description: 'Object-oriented programming and enterprise applications',
-      color: 'text-[#007396] dark:text-[#007396]/90',
-      tooltip: 'Enterprise application development and Spring Boot'
-    },
-    {
-      name: 'DSA in C++',
-      icon: SiCplusplus,
-      description: 'Data Structures and Algorithms implementation',
-      color: 'text-[#00599C] dark:text-[#00599C]/90',
-      tooltip: 'Competitive programming and system design'
-    }
+
   ]
 
   return (
@@ -135,8 +170,43 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-3 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {skills.map((skill, index) => (
+        {/* Skills Categories */}
+        <div className="flex justify-center gap-8 mb-12">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              onClick={() => setActiveTab(category.id as typeof activeTab)}
+              className={`group transition-all duration-300 flex flex-col items-center gap-2 ${activeTab === category.id
+                ? `${category.activeColor} scale-110`
+                : `text-gray-400 dark:text-gray-500 ${category.hoverColor}`
+              }`}
+            >
+              <div className="transform transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-12">
+                {category.icon}
+              </div>
+              <span className="text-sm font-medium tracking-wide">{category.label}</span>
+              {activeTab === category.id && (
+                <motion.div
+                  layoutId="activeIndicator"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-current"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Skills Grid */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className="grid gap-3 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+          {(activeTab === 'webdev' ? webDevSkills : activeTab === 'aiml' ? aiMlSkills : otherSkills).map((skill, index) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
@@ -164,7 +234,7 @@ export function SkillsSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

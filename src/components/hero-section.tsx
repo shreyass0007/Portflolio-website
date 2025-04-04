@@ -372,7 +372,7 @@ export function HeroSection() {
   <div className="relative w-full h-full">
     
     {/* Skills Code Block */}
-    <FloatingBlock className="absolute top-[5%] right-[45%] sm:right-[50%] lg:right-[55%] max-w-[160px] sm:max-w-[180px] lg:max-w-[220px] z-10" delay={0.6}>
+    <FloatingBlock className="absolute top-[-10%] right-[35%] sm:right-[50%] lg:right-[55%] max-w-[160px] sm:max-w-[180px] lg:max-w-[220px] z-10" delay={0.6}>
       <div className="space-y-0.5 sm:space-y-1">
         <div className="font-mono text-blue-600 dark:text-primary text-xs sm:text-sm">{'const skills = ['}</div>
         <div className="font-mono pl-2 sm:pl-4 text-gray-800 dark:text-gray-200 text-xs sm:text-sm">{"'Python', 'TensorFlow', 'scikit-learn'"}</div>
@@ -383,7 +383,7 @@ export function HeroSection() {
     </FloatingBlock>
 
     {/* Generative AI Block */}
-    <FloatingBlock className="absolute top-[35%] left-[55%] sm:left-[60%] lg:left-[65%] max-w-[140px] sm:max-w-[160px] lg:max-w-[200px] z-20" delay={0.7}>
+    <FloatingBlock className="absolute top-[15%] left-[60%] sm:left-[65%] lg:left-[70%] max-w-[140px] sm:max-w-[160px] lg:max-w-[200px] z-20" delay={0.7}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentAIIndex}
