@@ -173,7 +173,7 @@ export function HeroSection() {
   if (!mounted) return null
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-8 sm:py-12 lg:py-20 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric pattern */}
@@ -206,8 +206,8 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-transparent dark:from-background/95 dark:via-background/80 dark:to-transparent z-10" />
       
       {/* Main content */}
-      <div className="container mx-auto px-4 relative z-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 relative z-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
           {/* Left column - Main content */}
           <div className="w-full lg:w-1/2 space-y-8">
             <motion.div
@@ -232,12 +232,12 @@ export function HeroSection() {
               {/* Main heading */}
               <div className="space-y-3 sm:space-y-4">
                 <motion.h1 
-                  className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
+                  className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <span className="block text-xl sm:text-2xl text-gray-600 dark:text-gray-400 font-medium mb-4">
+                  <span className="block text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-medium mb-2 sm:mb-4">
                     Hi, I'm Shresh<span className="inline-block animate-wave">👋</span>
                   </span>
                   <AnimatePresence mode="wait">
@@ -255,7 +255,7 @@ export function HeroSection() {
                 </motion.h1>
 
                 <motion.p 
-                  className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl"
+                  className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-xl"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
@@ -266,24 +266,24 @@ export function HeroSection() {
 
               {/* CTA Buttons */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+                className="flex flex-col sm:flex-row w-full sm:w-auto gap-3 sm:gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <motion.a
                   href="#projects"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600/90 dark:hover:bg-blue-700/90 text-white rounded-lg font-semibold shadow-lg shadow-blue-500/20 dark:shadow-blue-600/30"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 dark:bg-blue-600/90 dark:hover:bg-blue-700/90 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 dark:shadow-blue-600/30 transition-all duration-200"
                 >
                   View Projects
                 </motion.a>
                 <motion.a
                   href="#contact"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-white hover:bg-gray-50 dark:bg-gray-900/90 dark:hover:bg-gray-800/90 text-gray-900 dark:text-gray-100 rounded-lg font-semibold 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base bg-white hover:bg-gray-50 dark:bg-gray-900/90 dark:hover:bg-gray-800/90 text-gray-900 dark:text-gray-100 rounded-xl font-semibold 
                     shadow-[0_4px_12px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_16px_rgb(0,0,0,0.15)] dark:shadow-lg 
                     border border-gray-300 dark:border-gray-800 hover:border-blue-500/30 dark:hover:border-blue-600/30 
                     transition-all duration-200"
@@ -294,7 +294,7 @@ export function HeroSection() {
 
               {/* Social links */}
               <motion.div 
-                className="flex items-center gap-4"
+                className="flex items-center gap-2 sm:gap-4 justify-center xs:justify-start"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
@@ -340,7 +340,7 @@ export function HeroSection() {
           </div>
 
           {/* Right column - Profile image and floating blocks */}
-          <div className="w-full lg:w-1/2 relative">
+          <div className="hidden md:block w-full lg:w-1/2 relative">
             {/* Profile image */}
             <motion.div 
               className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto"
