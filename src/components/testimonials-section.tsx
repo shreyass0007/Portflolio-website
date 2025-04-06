@@ -61,11 +61,7 @@ export function TestimonialsSection() {
   }, [emblaApi, onSelect])
 
   return (
-    <section className="py-12 md:py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-background dark:to-background relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 dark:from-blue-500/10 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-50/40 dark:from-blue-400/10 via-transparent to-transparent" />
-      
+    <section className="py-12 md:py-24 bg-white dark:bg-black relative overflow-hidden">
       <div className="container px-4 md:px-6 relative">
         <div className="flex flex-col items-center justify-center text-center mb-8 md:mb-12">
           <motion.div
@@ -173,10 +169,6 @@ export function TestimonialsSection() {
                           </div>
                         </div>
                       </div>
-
-                      {/* Decorative Elements */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-50/50 via-blue-50/30 to-transparent dark:from-blue-500/5 dark:via-blue-400/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl pointer-events-none" />
-                      <div className="absolute -inset-px bg-gradient-to-r from-blue-100/50 to-blue-50/50 dark:from-blue-500/10 dark:to-blue-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none" />
                     </div>
                   </motion.div>
                 ))}

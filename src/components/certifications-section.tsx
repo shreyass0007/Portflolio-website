@@ -109,8 +109,8 @@ export function CertificationsSection() {
                 onClick={() => setSelectedCert(cert)}
                 className="group cursor-pointer w-[300px] md:w-[350px] flex-shrink-0 snap-start"
               >
-                <div className="relative h-full p-6 bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-800/50 rounded-xl transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-none group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:group-hover:shadow-xl dark:group-hover:shadow-blue-500/10 group-hover:border-blue-500/50 dark:group-hover:border-blue-500/50 group-hover:-translate-y-1">
-                  <div className="aspect-[4/3] relative mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-800/50 group-hover:border-blue-500/50 transition-colors">
+                <div className="relative h-full p-6 bg-white dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-700/50 rounded-xl transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_rgba(255,255,255,0.05)] group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] group-hover:border-blue-500/50 dark:group-hover:border-blue-400/50 group-hover:-translate-y-1">
+                  <div className="aspect-[4/3] relative mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-700/50 group-hover:border-blue-500/50 transition-colors">
                     <Image
                       src={cert.image}
                       alt={cert.title}
@@ -119,19 +119,19 @@ export function CertificationsSection() {
                     />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white line-clamp-1">{cert.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-1">{cert.issuer}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-1">{cert.issuer}</p>
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.slice(0, 3).map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 text-sm bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-100 dark:border-blue-500/20"
+                          className="px-3 py-1 text-sm bg-blue-50 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-100 dark:border-blue-400/20"
                         >
                           {skill}
                         </span>
                       ))}
                       {cert.skills.length > 3 && (
-                        <span className="px-3 py-1 text-sm bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 rounded-full border border-gray-200 dark:border-gray-700">
+                        <span className="px-3 py-1 text-sm bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-600">
                           +{cert.skills.length - 3} more
                         </span>
                       )}
@@ -150,7 +150,7 @@ export function CertificationsSection() {
             <Button
               variant="outline"
               size="icon"
-              className="pointer-events-auto h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-black hover:bg-gray-800 text-white border-0 shadow-lg -translate-x-10"
+              className="pointer-events-auto h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-100 text-white dark:text-black border-0 shadow-lg -translate-x-10"
               onClick={(e) => {
                 e.stopPropagation();
                 handleScroll("left");
@@ -163,7 +163,7 @@ export function CertificationsSection() {
             <Button
               variant="outline"
               size="icon"
-              className="pointer-events-auto h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-black hover:bg-gray-800 text-white border-0 shadow-lg translate-x-10"
+              className="pointer-events-auto h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-100 text-white dark:text-black border-0 shadow-lg translate-x-10"
               onClick={(e) => {
                 e.stopPropagation();
                 handleScroll("right");
@@ -189,7 +189,7 @@ export function CertificationsSection() {
                   "w-2.5 h-2.5 rounded-full transition-all duration-300",
                   index === currentIndex
                     ? "bg-blue-500 scale-125"
-                    : "bg-gray-300 dark:bg-gray-700 hover:bg-blue-400/50 dark:hover:bg-blue-500/30"
+                    : "bg-gray-300 dark:bg-gray-600 hover:bg-blue-400/50 dark:hover:bg-blue-400/50"
                 )}
                 aria-label={`Go to certificate ${index + 1}`}
               />
@@ -212,17 +212,17 @@ export function CertificationsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6"
+              className="relative w-full max-w-[90vw] md:max-w-5xl h-[90vh] bg-white dark:bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 overflow-y-auto"
             >
               <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-gray-800/50 hover:bg-gray-700/50 transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800/50 hover:bg-gray-200 dark:hover:bg-gray-700/50 transition-colors z-10"
               >
-                <X className="w-6 h-6 text-gray-400" />
+                <X className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               </button>
 
-              <div className="grid md:grid-cols-[2fr_1fr] gap-6">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-gray-800">
+              <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6">
+                <div className="relative aspect-[4/3] md:aspect-[3/2] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800">
                   <Image
                     src={selectedCert.image}
                     alt={selectedCert.title}
@@ -233,27 +233,27 @@ export function CertificationsSection() {
                   />
                 </div>
 
-                <div className="flex flex-col">
-                  <h3 className="text-2xl font-bold text-white mb-2">{selectedCert.title}</h3>
-                  <p className="text-blue-400 mb-4">{selectedCert.issuer}</p>
-                  <p className="text-gray-300 mb-6">{selectedCert.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-col space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{selectedCert.title}</h3>
+                  <p className="text-blue-600 dark:text-blue-400">{selectedCert.issuer}</p>
+                  <p className="text-gray-600 dark:text-gray-300">{selectedCert.description}</p>
+                  <div className="flex flex-wrap gap-2">
                     {selectedCert.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full"
+                        className="px-3 py-1 text-sm bg-blue-50 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 rounded-full"
                       >
                         {skill}
                       </span>
                     ))}
                   </div>
                   <div className="mt-auto">
-                    <p className="text-gray-400 mb-4">{selectedCert.date}</p>
+                    <p className="text-gray-500 dark:text-gray-400">{selectedCert.date}</p>
                     <a
                       href={selectedCert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium transition-colors w-full"
+                      className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium transition-colors w-full md:w-auto mt-4"
                     >
                       View Credential
                     </a>

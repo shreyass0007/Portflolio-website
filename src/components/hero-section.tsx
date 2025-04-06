@@ -173,7 +173,7 @@ export function HeroSection() {
   if (!mounted) return null
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-8 sm:py-12 lg:py-20 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-8 sm:py-12 lg:py-20 overflow-hidden bg-gradient-to-br from-gray-50/50 via-gray-100/50 to-gray-100/50 dark:from-gray-900/50 dark:via-gray-800/50 dark:to-gray-800/50">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric pattern */}

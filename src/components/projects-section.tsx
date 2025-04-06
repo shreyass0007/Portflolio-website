@@ -281,10 +281,7 @@ export const ProjectsSection = () => {
   }
 
   return (
-    <section id="projects" className="py-16 sm:py-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50/50 dark:from-background dark:to-background">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 dark:from-blue-500/10 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-50/40 dark:from-blue-400/10 via-transparent to-transparent" />
-      
+    <section id="projects" className="py-16 sm:py-20 relative overflow-hidden bg-white dark:bg-black">
       <div className="container max-w-7xl mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
