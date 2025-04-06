@@ -15,7 +15,8 @@ import {
   SiTensorflow,
   SiPytorch,
   SiOpenjdk,
-  SiCplusplus
+  SiCplusplus,
+  SiOpencv
 } from 'react-icons/si'
 
 export function SkillsSection() {
@@ -137,7 +138,13 @@ export function SkillsSection() {
       color: 'text-[#EE4C2C] dark:text-[#EE4C2C]/90',
       tooltip: 'Deep learning research and computer vision projects'
     },
-
+    {
+      name: 'OpenCV',
+      icon: SiOpencv,
+      description: 'Computer vision and image processing',
+      color: 'text-[#FFFFFF] dark:text-[#FFFFFF]/90',
+      tooltip: 'Image processing and computer vision applications'
+    }
   ]
 
   return (
