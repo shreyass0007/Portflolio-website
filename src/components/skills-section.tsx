@@ -142,7 +142,7 @@ export function SkillsSection() {
       name: 'OpenCV',
       icon: SiOpencv,
       description: 'Computer vision and image processing',
-      color: 'text-[#FFFFFF] dark:text-[#FFFFFF]/90',
+      color: 'text-gray-900 dark:text-white',
       tooltip: 'Image processing and computer vision applications'
     }
   ]
