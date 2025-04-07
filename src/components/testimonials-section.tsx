@@ -9,9 +9,9 @@ import useEmblaCarousel from 'embla-carousel-react'
 const testimonials = [
   {
     content: "Shresh is an exceptional developer who consistently delivers high-quality work. Their attention to detail and problem-solving skills are impressive.",
-    author: "Sarah Johnson",
+    author: "John Doe",
     position: "Tech Lead at InnovateX",
-    image: "/placeholder-user.jpg"
+    image: "/images/T2.jpg"
   },
   {
     content: "Working with Shresh was a great experience. They have a deep understanding of modern web technologies and always find elegant solutions.",
