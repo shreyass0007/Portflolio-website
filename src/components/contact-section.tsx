@@ -174,20 +174,20 @@ export function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'shreyas.078btcse21@gmail.com',
+      value: 'shreshshende.777@gmail.com',
       href: 'mailto:shreyas.078btcse21@gmail.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 1234567890',
-      href: 'tel:+911234567890'
+      value: '+91 9022159520',
+      href: 'tel:+919022159520'
     },
     {
       icon: MapPin,
       title: 'Location',
       value: 'Pune, India',
-      href: 'https://maps.google.com'
+      href: 'https://maps.app.goo.gl/KJWxtzM614W5Q8yEA'
     }
   ]
 
@@ -232,7 +232,7 @@ export function ContactSection() {
                 <Input
                   type="email"
                   name="from_email"
-                  placeholder="Your email"
+                  placeholder="shreshshende.777@gmail.com"
                   required
                   className={cn(
                     "bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm border-gray-200 dark:border-gray-800",

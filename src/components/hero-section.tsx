@@ -300,7 +300,7 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <motion.a
-                  href="https://github.com/shreyas-078"
+                  href="https://github.com/shreyass0007"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -309,7 +309,7 @@ export function HeroSection() {
                   <Github className="w-6 h-6" />
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com/in/shreyas-078"
+                  href="https://www.linkedin.com/in/shresh-shende/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -327,7 +327,7 @@ export function HeroSection() {
                   <Twitter className="w-6 h-6" />
                 </motion.a>
                 <motion.a
-                  href="mailto:shreyas.078btcse21@gmail.com"
+                  href="mailto:shreshshende.777@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -355,7 +355,7 @@ export function HeroSection() {
               <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-white/90 dark:ring-gray-900/90 ring-offset-4 ring-offset-white dark:ring-offset-background">
                 <Image
                   src="/profile.png"
-                  alt="Shreyas"
+                  alt="Shresh Shende"
                   fill
                   className="object-cover"
                   priority
