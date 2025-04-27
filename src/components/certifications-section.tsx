@@ -89,14 +89,22 @@ export function CertificationsSection() {
   useKeyPressEvent("ArrowRight", () => handleScroll("right"));
 
   return (
-    <section id="certifications" className="py-16 sm:py-24 md:py-32 bg-background relative">
-      <div className="container max-w-7xl px-4">
+    <section id="certifications" className="relative w-screen py-16 sm:py-24 md:py-32 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 overflow-hidden">
+      {/* Background color and gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5 dark:from-blue-400/5 dark:to-purple-400/5" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.8)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] opacity-20" />
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-16">Certifications</h2>
 
         <div className="relative">
           <div
             ref={containerRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none px-4 pb-4"
+            className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none px-2 sm:px-4 pb-4"
             style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
           >
             {certifications.map((cert, index) => (
@@ -107,7 +115,7 @@ export function CertificationsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedCert(cert)}
-                className="group cursor-pointer w-[300px] md:w-[350px] flex-shrink-0 snap-start"
+                className="group cursor-pointer w-[280px] sm:w-[300px] md:w-[350px] flex-shrink-0 snap-start"
               >
                 <div className="relative h-full p-6 bg-white dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-700/50 rounded-xl transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_rgba(255,255,255,0.05)] group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] group-hover:border-blue-500/50 dark:group-hover:border-blue-400/50 group-hover:-translate-y-1">
                   <div className="aspect-[4/3] relative mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-700/50 group-hover:border-blue-500/50 transition-colors">
@@ -221,8 +229,8 @@ export function CertificationsSection() {
                 <X className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6">
-                <div className="relative aspect-[4/3] md:aspect-[3/2] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800">
+              <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 sm:gap-6 max-w-5xl mx-auto">
+                <div className="relative aspect-[4/3] sm:aspect-[3/2] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800">
                   <Image
                     src={selectedCert.image}
                     alt={selectedCert.title}
@@ -234,7 +242,7 @@ export function CertificationsSection() {
                 </div>
 
                 <div className="flex flex-col space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{selectedCert.title}</h3>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">{selectedCert.title}</h3>
                   <p className="text-blue-600 dark:text-blue-400">{selectedCert.issuer}</p>
                   <p className="text-gray-600 dark:text-gray-300">{selectedCert.description}</p>
                   <div className="flex flex-wrap gap-2">

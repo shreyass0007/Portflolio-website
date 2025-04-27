@@ -148,7 +148,15 @@ export function SkillsSection() {
   ]
 
   return (
-    <section id="skills" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
+    <section id="skills" className="relative w-screen py-16 sm:py-24 md:py-32 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 overflow-hidden">
+      {/* Background color and gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950" />
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-blue-500/5 dark:from-purple-400/5 dark:to-blue-400/5" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.8)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] opacity-20" />
+
       {/* Decorative background */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
         <div className="relative w-[800px] h-[800px]">
@@ -160,8 +168,8 @@ export function SkillsSection() {
           />
         </div>
       </div>
-      
-      <div className="container max-w-7xl px-4 relative">
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

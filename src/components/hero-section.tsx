@@ -72,28 +72,23 @@ function ParticleEffect() {
 // Scroll indicator component
 function ScrollIndicator() {
   return (
-    <motion.div 
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+    <motion.div
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3 text-sm text-gray-500 dark:text-gray-400"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1 }}
+      transition={{ duration: 0.5, delay: 1 }}
     >
-      <span className="text-sm text-gray-600 dark:text-gray-400">Scroll to explore</span>
+      <span className="text-center font-medium">Scroll to explore</span>
       <motion.div
-        className="w-5 h-8 border-2 border-gray-500 dark:border-gray-600 rounded-full p-1"
+        className="w-6 h-9 border-2 border-gray-400 dark:border-gray-600 rounded-full p-1"
         initial={{ opacity: 0.5 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: 0.8 }}
+        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
       >
         <motion.div
-          className="w-1 h-1.5 bg-gray-500 dark:bg-gray-600 rounded-full"
-          animate={{ 
-            y: [0, 20, 0],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-600 rounded-full"
+          animate={{ y: [0, 14, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
     </motion.div>
@@ -173,11 +168,15 @@ export function HeroSection() {
   if (!mounted) return null
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-8 sm:py-12 lg:py-20 overflow-hidden bg-gradient-to-br from-gray-50/50 via-gray-100/50 to-gray-100/50 dark:from-gray-900/50 dark:via-gray-800/50 dark:to-gray-800/50">
+    <section className="relative min-h-screen w-screen flex items-center py-8 sm:py-12 lg:py-20 overflow-hidden -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
+      {/* Background color and gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5 dark:from-blue-400/5 dark:to-purple-400/5" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.8)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric pattern */}
-        <div className="absolute w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute w-screen h-screen max-w-[1400px] max-h-[1400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <Image
             src="/images/hero-pattern.svg"
             alt="Geometric Pattern"
@@ -188,7 +187,7 @@ export function HeroSection() {
         </div>
         
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] opacity-25" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] opacity-20" />
       </div>
       
       {/* Particle effect */}
@@ -203,22 +202,22 @@ export function HeroSection() {
       />
       
       {/* Subtle gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-transparent dark:from-background/95 dark:via-background/80 dark:to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/50 to-transparent dark:from-gray-900/90 dark:via-gray-900/50 dark:to-transparent z-10" />
       
       {/* Main content */}
-      <div className="container mx-auto px-4 sm:px-6 relative z-20">
-        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
+      <div className="container max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-20 pt-16 sm:pt-20 lg:pt-24">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-16 w-full">
           {/* Left column - Main content */}
-          <div className="w-full lg:w-1/2 space-y-8">
+          <div className="w-full lg:w-[45%] space-y-8">
             <motion.div
-              className="space-y-6"
+              className="space-y-6 flex flex-col items-center sm:items-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               {/* Status badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 self-center sm:self-start"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -230,7 +229,7 @@ export function HeroSection() {
               </motion.div>
 
               {/* Main heading */}
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
                 <motion.h1 
                   className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
@@ -255,7 +254,7 @@ export function HeroSection() {
                 </motion.h1>
 
                 <motion.p 
-                  className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-xl"
+                  className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-xl mx-auto sm:mx-0"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
@@ -266,7 +265,7 @@ export function HeroSection() {
 
               {/* CTA Buttons */}
               <motion.div 
-                className="flex flex-col sm:flex-row w-full sm:w-auto gap-3 sm:gap-4"
+                className="flex flex-col sm:flex-row items-center sm:items-start w-full sm:w-auto gap-3 sm:gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -275,7 +274,7 @@ export function HeroSection() {
                   href="#projects"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 dark:bg-blue-600/90 dark:hover:bg-blue-700/90 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 dark:shadow-blue-600/30 transition-all duration-200"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 dark:bg-blue-600/90 dark:hover:bg-blue-700/90 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 dark:shadow-blue-600/30 transition-all duration-200 max-w-[200px] sm:max-w-none"
                 >
                   View Projects
                 </motion.a>
@@ -283,10 +282,10 @@ export function HeroSection() {
                   href="#contact"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base bg-white hover:bg-gray-50 dark:bg-gray-900/90 dark:hover:bg-gray-800/90 text-gray-900 dark:text-gray-100 rounded-xl font-semibold 
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base bg-white hover:bg-gray-50 dark:bg-gray-900/90 dark:hover:bg-gray-800/90 text-gray-900 dark:text-gray-100 rounded-xl font-semibold 
                     shadow-[0_4px_12px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_16px_rgb(0,0,0,0.15)] dark:shadow-lg 
                     border border-gray-300 dark:border-gray-800 hover:border-blue-500/30 dark:hover:border-blue-600/30 
-                    transition-all duration-200"
+                    transition-all duration-200 max-w-[200px] sm:max-w-none"
                 >
                   Contact Me
                 </motion.a>
@@ -294,7 +293,7 @@ export function HeroSection() {
 
               {/* Social links */}
               <motion.div 
-                className="flex items-center gap-2 sm:gap-4 justify-center xs:justify-start"
+                className="flex items-center gap-6 justify-center w-full max-w-[280px] mx-auto sm:max-w-none sm:mx-0 sm:justify-start"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
@@ -304,46 +303,46 @@ export function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-blue-300 transition-colors"
+                  className="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-blue-300 transition-colors flex items-center justify-center"
                 >
-                  <Github className="w-6 h-6" />
+                  <Github className="w-7 h-7" />
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/shresh-shende/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-[#0A66C2]"
+                  className="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-[#0A66C2] flex items-center justify-center"
                 >
-                  <Linkedin className="w-6 h-6" />
+                  <Linkedin className="w-7 h-7" />
                 </motion.a>
                 <motion.a
                   href="https://twitter.com/shreyas078"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-[#1DA1F2]"
+                  className="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-[#1DA1F2] flex items-center justify-center"
                 >
-                  <Twitter className="w-6 h-6" />
+                  <Twitter className="w-7 h-7" />
                 </motion.a>
                 <motion.a
                   href="mailto:shreshshende.777@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-red-500"
+                  className="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/90 text-red-500 flex items-center justify-center"
                 >
-                  <Mail className="w-6 h-6" />
+                  <Mail className="w-7 h-7" />
                 </motion.a>
               </motion.div>
             </motion.div>
           </div>
 
           {/* Right column - Profile image and floating blocks */}
-          <div className="hidden md:block w-full lg:w-1/2 relative">
+          <div className="hidden md:block w-full lg:w-[45%] relative">
             {/* Profile image */}
             <motion.div 
-              className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto"
+              className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
