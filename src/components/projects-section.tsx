@@ -120,15 +120,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured = false, in
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group h-full"
+      className="group cursor-pointer h-full hover:scale-[1.02] transition-transform duration-300"
     >
-      <div className="relative h-full p-4 sm:p-6 bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/80 dark:border-gray-800/50 rounded-xl transition-all duration-300 
-        shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-none
-        group-hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:group-hover:shadow-xl dark:group-hover:shadow-blue-500/10 
-        group-hover:border-blue-500/50 dark:group-hover:border-blue-500/50 
-        group-hover:-translate-y-1 flex flex-col">
+      <div className="relative h-full p-4 sm:p-6 bg-white/95 dark:bg-gray-900/95 border border-gray-200/80 dark:border-gray-800/50 rounded-xl 
+        transition-all duration-300 
+        shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_rgba(255,255,255,0.05)]
+        group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:group-hover:shadow-[0_8px_30px_rgba(255,255,255,0.1)]
+        group-hover:border-gray-300 dark:group-hover:border-gray-700
+        group-hover:-translate-y-1 group-hover:bg-white dark:group-hover:bg-gray-900
+        group-hover:scale-[1.02] flex flex-col">
         {/* Project Image */}
-        <div className="aspect-[16/9] relative mb-4 sm:mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-800/50 group-hover:border-blue-500/50 transition-colors">
+        <div className="aspect-[16/9] relative mb-4 sm:mb-6 rounded-lg overflow-hidden border border-gray-200/80 dark:border-gray-800/50 group-hover:border-transparent transition-colors">
           {imageLoading && (
             <Skeleton className="absolute inset-0 z-10" />
           )}
@@ -136,7 +138,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured = false, in
             src={project.image}
             alt={project.title}
             fill
-            className={`object-cover transition-transform duration-500 group-hover:scale-110 ${
+            className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
               imageLoading ? 'opacity-0' : 'opacity-100'
             }`}
             onLoadingComplete={() => setImageLoading(false)}
@@ -199,9 +201,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured = false, in
           </div>
         </div>
 
-        {/* Decorative gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-50/50 via-blue-50/30 to-transparent dark:from-blue-500/5 dark:via-blue-400/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl pointer-events-none" />
-        <div className="absolute -inset-px bg-gradient-to-r from-blue-100/50 to-blue-50/50 dark:from-blue-500/10 dark:to-blue-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none" />
+        {/* Hover glow effect */}
+        <div className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 rounded-[13px] opacity-0 group-hover:opacity-25 transition-all duration-500 ease-out -z-10" />
+        <div className="absolute -inset-[2px] bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 rounded-[14px] opacity-0 group-hover:opacity-25 blur-md transition-all duration-500 ease-out -z-10" />
       </div>
     </motion.div>
   )
@@ -254,8 +256,8 @@ export const ProjectsSection = () => {
       <section className="py-16 sm:py-20 relative overflow-hidden" id="projects">
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white to-white/50 dark:from-background/50 dark:via-background dark:to-background/50" />
         
-        <div className="container mx-auto px-4 sm:px-6 relative">
-          <div className="space-y-4 mb-8">
+        <div className="w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center space-y-4 mb-12">
             <Skeleton className="h-12 w-[200px]" />
             <Skeleton className="h-6 w-[300px]" />
           </div>
@@ -281,8 +283,8 @@ export const ProjectsSection = () => {
   }
 
   return (
-    <section id="projects" className="py-16 sm:py-20 relative overflow-hidden bg-white dark:bg-black">
-      <div className="container max-w-7xl mx-auto px-4 relative">
+    <section id="projects" className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
+      <div className="w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -290,10 +292,10 @@ export const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4 mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
             Featured Projects
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
             A selection of my recent work in AI, web development, and more
           </p>
 
@@ -323,7 +325,7 @@ export const ProjectsSection = () => {
           </motion.div>
         </motion.div>
 
-        <div className="relative">
+        <div className="container mx-auto px-4 sm:px-6 relative">
           {/* Scroll buttons */}
           <motion.button
             initial={{ opacity: 0 }}

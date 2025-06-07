@@ -26,40 +26,26 @@ export default function Home() {
   const { isMobile } = useResponsive()
 
   return (
-    <main className="relative w-full overflow-x-hidden bg-background">
+    <main id="main-content" className="relative w-full overflow-x-hidden bg-background">
+
       <Navbar />
       
       {/* Full-width sections */}
       <ErrorBoundary>
         <HeroSection />
       </ErrorBoundary>
-
-      {/* Contained sections */}
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-24">
-        <MotionWrapper>
-          <Suspense fallback={<SectionLoader />}>
-            <ErrorBoundary>
-              <AboutSection />
-            </ErrorBoundary>
-          </Suspense>
-        </MotionWrapper>
-      </div>
+      <ErrorBoundary>
+        <AboutSection />
+      </ErrorBoundary>
 
       {/* Full-width technical sections */}
       <ErrorBoundary>
         <SkillsSection />
       </ErrorBoundary>
 
-      {/* Contained sections */}
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-24">
-        <MotionWrapper>
-          <Suspense fallback={<SectionLoader />}>
-            <ErrorBoundary>
-              <ProjectsSection />
-            </ErrorBoundary>
-          </Suspense>
-        </MotionWrapper>
-      </div>
+      <ErrorBoundary>
+        <ProjectsSection />
+      </ErrorBoundary>
 
       <ErrorBoundary>
         <CertificationsSection />

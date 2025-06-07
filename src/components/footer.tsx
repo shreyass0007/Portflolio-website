@@ -13,7 +13,7 @@ export function Footer() {
           </div>
           <div className="flex space-x-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/shreyass0007"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -22,7 +22,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/shresh-shende/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -31,7 +31,7 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://twitter.com/shreyas078"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -41,17 +41,20 @@ export function Footer() {
             </a>
           </div>
           <nav className="hidden md:flex gap-4 mt-4 md:mt-0">
-            <Link href="#home" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="#hero" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               Home
             </Link>
             <Link href="#about" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               About
             </Link>
+            <Link href="#skills" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Skills
+            </Link>
             <Link href="#projects" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               Projects
             </Link>
-            <Link href="#skills" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Skills
+            <Link href="#certifications" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Certifications
             </Link>
             <Link href="#contact" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               Contact

@@ -10,6 +10,9 @@ interface Point {
   size: number
   color: string
   layer: number
+  rotation: number
+  rotationSpeed: number
+  shape: 'circle' | 'square' | 'triangle' | 'pentagon'
 }
 
 interface Line {
@@ -91,6 +94,10 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
           const layerScale = 1 - (Math.abs(layer - layerCount/2) / layerCount)
           const size = (Math.random() * 2 + basePointRadius) * layerScale
           
+          // Add rotation properties and random shapes
+          const shapes = ['circle', 'square', 'triangle', 'pentagon'] as const
+          const shape = shapes[Math.floor(Math.random() * shapes.length)]
+          
           points.push({
             x,
             y,
@@ -98,7 +105,10 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
             vy,
             size,
             color: `rgba(var(--primary-rgb), ${0.7 + Math.random() * 0.3})`, // Random opacity variation
-            layer // Store layer information for connection logic
+            layer, // Store layer information for connection logic
+            rotation: Math.random() * Math.PI * 2, // Random initial rotation
+            rotationSpeed: (Math.random() - 0.5) * 0.02, // Random rotation speed and direction
+            shape
           })
         }
       }
@@ -106,6 +116,10 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
       // Add some random floating points for organic feel
       const floatingPoints = Math.floor(numPoints * 0.2) // 20% additional floating points
       for (let i = 0; i < floatingPoints; i++) {
+        // Add rotation properties and random shapes for floating points
+        const shapes = ['circle', 'square', 'triangle', 'pentagon'] as const
+        const shape = shapes[Math.floor(Math.random() * shapes.length)]
+        
         points.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -113,7 +127,10 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
           vy: (Math.random() - 0.5) * pointSpeed * 0.5,
           size: Math.random() * 1.5 + basePointRadius * 0.8,
           color: `rgba(var(--primary-rgb), ${0.5 + Math.random() * 0.3})`,
-          layer: -1 // Special layer for floating points
+          layer: -1, // Special layer for floating points
+          rotation: Math.random() * Math.PI * 2, // Random initial rotation
+          rotationSpeed: (Math.random() - 0.5) * 0.03, // Random rotation speed and direction
+          shape
         })
       }
     }
@@ -139,6 +156,8 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
       if (!canvas) return
       
       points.forEach((point) => {
+        // Update rotation
+        point.rotation += point.rotationSpeed
         // Mouse repulsion with "neural activation" effect
         if (mousePosition.current) {
           const dx = mousePosition.current.x - point.x
@@ -243,10 +262,11 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
         ctx.shadowBlur = 0
       })
 
-      // Draw points with neural activation effect
+      // Draw points with neural activation effect and rotation
       points.forEach((point) => {
-        ctx.beginPath()
-        ctx.arc(point.x, point.y, point.size, 0, Math.PI * 2)
+        ctx.save() // Save the current state
+        ctx.translate(point.x, point.y) // Move to the point's position
+        ctx.rotate(point.rotation) // Apply rotation
         
         // Pulsing glow effect
         const pulse = (Math.sin(Date.now() * 0.003 + point.x * 0.01) + 1) * 0.2
@@ -254,16 +274,47 @@ export function GeometricAnimation({ className = "" }: { className?: string }) {
         ctx.shadowColor = `rgba(var(--primary-rgb), ${glowIntensity})`
         
         const gradient = ctx.createRadialGradient(
-          point.x, point.y, 0,
-          point.x, point.y, point.size
+          0, 0, 0,
+          0, 0, point.size
         )
         gradient.addColorStop(0, `rgba(var(--primary-rgb), ${0.9 + pulse})`)
         gradient.addColorStop(1, `rgba(var(--primary-rgb), 0)`)
         
         ctx.fillStyle = gradient
-        ctx.fill()
+        
+        // Draw different shapes based on the point's shape property
+        if (point.shape === 'circle') {
+          ctx.beginPath()
+          ctx.arc(0, 0, point.size, 0, Math.PI * 2)
+          ctx.fill()
+        } else if (point.shape === 'square') {
+          ctx.beginPath()
+          ctx.rect(-point.size, -point.size, point.size * 2, point.size * 2)
+          ctx.fill()
+        } else if (point.shape === 'triangle') {
+          ctx.beginPath()
+          const size = point.size * 1.5
+          ctx.moveTo(0, -size)
+          ctx.lineTo(size * Math.cos(Math.PI/6), size * Math.sin(Math.PI/6))
+          ctx.lineTo(-size * Math.cos(Math.PI/6), size * Math.sin(Math.PI/6))
+          ctx.closePath()
+          ctx.fill()
+        } else if (point.shape === 'pentagon') {
+          ctx.beginPath()
+          const size = point.size * 1.2
+          for (let i = 0; i < 5; i++) {
+            const angle = (i * 2 * Math.PI / 5) - Math.PI / 2
+            const x = size * Math.cos(angle)
+            const y = size * Math.sin(angle)
+            if (i === 0) ctx.moveTo(x, y)
+            else ctx.lineTo(x, y)
+          }
+          ctx.closePath()
+          ctx.fill()
+        }
         
         ctx.shadowBlur = 0
+        ctx.restore() // Restore the state
       })
 
       // Draw mouse interaction effect

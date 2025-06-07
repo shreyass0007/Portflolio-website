@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils"
 import emailjs from '@emailjs/browser'
 
 // Using environment variables for EmailJS credentials
-const EMAILJS_SERVICE_ID = 'service_4hpzerw'
-const EMAILJS_TEMPLATE_ID = 'template_or0lh1m'
-const EMAILJS_PUBLIC_KEY = 'd5zhSoY1kkMlFbHx6'
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_4hpzerw'
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_or0lh1m'
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'd5zhSoY1kkMlFbHx6'
 
 export function ContactSection() {
   const { toast } = useToast()
@@ -192,11 +192,16 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-24 lg:py-32">
-      <div className="container max-w-7xl px-4">
+    <section className="py-16 sm:py-20" id="contact">
+      {/* Background gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.12)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(147,51,234,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(147,51,234,0.12)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(255,255,255,0.8)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.8)_100%)]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 relative">
         <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Get In Touch</h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Get In Touch</h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Have a question, project, or collaboration in mind? Let's talk!
           </p>
         </div>
@@ -324,7 +329,7 @@ export function ContactSection() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent dark:from-blue-900/20 dark:via-transparent dark:to-transparent rounded-2xl" />
             
             {/* Content container */}
-            <div className="relative space-y-6 sm:space-y-8 p-4 sm:p-6 md:p-8 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-white/5 bg-white/50 dark:bg-gray-900/50">
+            <div className="container mx-auto px-4 sm:px-6 relative space-y-6 sm:space-y-8 p-4 sm:p-6 md:p-8 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-white/5 bg-white/50 dark:bg-gray-900/50">
               {/* Contact info */}
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">

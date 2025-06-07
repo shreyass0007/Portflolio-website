@@ -11,19 +11,22 @@ const testimonials = [
     content: "Shresh is an exceptional developer who consistently delivers high-quality work. Their attention to detail and problem-solving skills are impressive.",
     author: "John Doe",
     position: "Tech Lead at InnovateX",
-    image: "/images/T2.jpg"
+    image: "/images/T2.jpg",
+    rating: 5
   },
   {
     content: "Working with Shresh was a great experience. They have a deep understanding of modern web technologies and always find elegant solutions.",
     author: "Michael Chen",
     position: "CTO at WebFlow Solutions",
-    image: "/images/client.jpg"
+    image: "/images/client.jpg",
+    rating: 5
   },
   {
     content: "Shresh's ability to translate complex requirements into beautiful, functional interfaces is remarkable. A true professional!",
     author: "Emily Rodriguez",
     position: "Product Manager at TechCorp",
-    image: "/placeholder-user.jpg"
+    image: "/placeholder-user.jpg",
+    rating: 5
   }
 ]
 
@@ -61,8 +64,8 @@ export function TestimonialsSection() {
   }, [emblaApi, onSelect])
 
   return (
-    <section className="py-12 md:py-24 bg-white dark:bg-black relative overflow-hidden">
-      <div className="container px-4 md:px-6 relative">
+    <section className="py-16 sm:py-20" id="testimonials">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-center text-center mb-8 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +84,7 @@ export function TestimonialsSection() {
                 <Quote className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </motion.span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-3 md:mb-4 text-gray-900 dark:text-white bg-clip-text">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
               Client Testimonials
             </h2>
             <p className="text-gray-600 dark:text-gray-400 md:text-lg max-w-[600px] mx-auto">
@@ -90,7 +93,7 @@ export function TestimonialsSection() {
           </motion.div>
         </div>
 
-        <div className="relative">
+        <div className="container mx-auto px-4 sm:px-6 relative">
           {/* Mobile Scroll Buttons */}
           <div className="md:hidden">
             <motion.button
@@ -142,7 +145,7 @@ export function TestimonialsSection() {
                       </div>
 
                       {/* Testimonial Content */}
-                      <div className="mb-6 pt-2">
+                      <div className="text-center space-y-4 mb-12">
                         <p className="text-gray-600 dark:text-gray-300 italic leading-relaxed text-sm md:text-base line-clamp-4 min-h-[84px] md:min-h-[96px]">
                           "{testimonial.content}"
                         </p>

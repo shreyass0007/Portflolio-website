@@ -168,12 +168,14 @@ export function HeroSection() {
   if (!mounted) return null
 
   return (
-    <section className="relative min-h-screen w-screen flex items-center py-8 sm:py-12 lg:py-20 overflow-hidden -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
-      {/* Background color and gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" />
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5 dark:from-blue-400/5 dark:to-purple-400/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.8)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
-      {/* Background elements */}
+    <section id="hero" className="relative w-screen min-h-screen -mt-16 pt-16 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 overflow-hidden flex flex-col bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      {/* Background gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(147,51,234,0.08)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(255,255,255,0.8)_100%)]" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-25" />
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric pattern */}
         <div className="absolute w-screen h-screen max-w-[1400px] max-h-[1400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -181,7 +183,7 @@ export function HeroSection() {
             src="/images/hero-pattern.svg"
             alt="Geometric Pattern"
             fill
-            className="object-contain opacity-[0.15] dark:opacity-[0.07] animate-spin-slow"
+            className="object-contain opacity-[0.15] animate-spin-slow"
             priority
           />
         </div>
@@ -361,9 +363,38 @@ export function HeroSection() {
                 />
               </div>
 
-              {/* Decorative circles */}
-              <div className="absolute -z-10 w-full h-full rounded-full border-[6px] border-dashed border-blue-200 dark:border-blue-900/50 animate-spin-slow" />
-              <div className="absolute -z-10 w-[120%] h-[120%] -inset-[10%] rounded-full border-[6px] border-dashed border-purple-200 dark:border-purple-900/50 animate-reverse-spin-slow" />
+              {/* Decorative circles with rotation animations */}
+              <motion.div 
+                className="absolute -z-10 w-full h-full rounded-full border-[6px] border-dashed border-blue-200 dark:border-blue-900/50"
+                animate={{ rotate: 360 }}
+                transition={{ 
+                  duration: 30, 
+                  repeat: Infinity, 
+                  ease: "linear",
+                  repeatType: "loop"
+                }}
+              />
+              <motion.div 
+                className="absolute -z-10 w-[120%] h-[120%] -inset-[10%] rounded-full border-[6px] border-dashed border-purple-200 dark:border-purple-900/50"
+                animate={{ rotate: -360 }}
+                transition={{ 
+                  duration: 40, 
+                  repeat: Infinity, 
+                  ease: "linear",
+                  repeatType: "loop"
+                }}
+              />
+              {/* Additional rotating circle */}
+              <motion.div 
+                className="absolute -z-10 w-[140%] h-[140%] -inset-[20%] rounded-full border-[3px] border-dotted border-indigo-200 dark:border-indigo-900/50"
+                animate={{ rotate: 360 }}
+                transition={{ 
+                  duration: 50, 
+                  repeat: Infinity, 
+                  ease: "linear",
+                  repeatType: "loop"
+                }}
+              />
             </motion.div>
 
             {/* Floating blocks */}

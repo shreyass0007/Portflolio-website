@@ -28,22 +28,22 @@ export function SkillsSection() {
     {
       id: 'aiml',
       label: 'AI/ML',
-      icon: <span className="text-2xl"></span>,
-      activeColor: 'text-blue-600 dark:text-blue-400',
+      icon: <SiPytorch className="text-2xl" />,
+      activeColor: 'text-blue-600 dark:text-blue-400 scale-110 transition-transform',
       hoverColor: 'hover:text-blue-500 dark:hover:text-blue-300'
     },
     {
       id: 'webdev',
       label: 'Web Dev',
-      icon: <span className="text-2xl"></span>,
-      activeColor: 'text-purple-600 dark:text-purple-400',
+      icon: <SiReact className="text-2xl" />,
+      activeColor: 'text-purple-600 dark:text-purple-400 scale-110 transition-transform',
       hoverColor: 'hover:text-purple-500 dark:hover:text-purple-300'
     },
     {
       id: 'other',
       label: 'Other',
-      icon: <span className="text-2xl"></span>,
-      activeColor: 'text-indigo-600 dark:text-indigo-400',
+      icon: <SiCplusplus className="text-2xl" />,
+      activeColor: 'text-indigo-600 dark:text-indigo-400 scale-110 transition-transform',
       hoverColor: 'hover:text-indigo-500 dark:hover:text-indigo-300'
     }
   ]
@@ -148,7 +148,7 @@ export function SkillsSection() {
   ]
 
   return (
-    <section id="skills" className="relative w-screen py-16 sm:py-24 md:py-32 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 overflow-hidden">
+    <section id="skills" className="relative w-screen py-16 sm:py-24 md:py-32 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 overflow-hidden bg-white dark:bg-black">
       {/* Background color and gradients */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950" />
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-blue-500/5 dark:from-purple-400/5 dark:to-blue-400/5" />
@@ -177,7 +177,7 @@ export function SkillsSection() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4 mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
             Technical Expertise
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto">

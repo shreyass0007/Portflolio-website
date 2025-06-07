@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { ScrollProgress } from "@/components/scroll-progress"
 import "./globals.css"
@@ -18,17 +17,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" className="scroll-smooth light">
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
-        >
-          <ScrollProgress />
-          {children}
-          <Toaster />
-        </ThemeProvider>
+        <ScrollProgress />
+        {children}
+        <Toaster />
       </body>
     </html>
   )
