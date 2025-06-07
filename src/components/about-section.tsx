@@ -41,7 +41,7 @@ export function AboutSection() {
           <AnimatedSection className="relative aspect-[4/5] w-full max-w-lg mx-auto" direction="left" delay={0.1}>
             <div className="relative w-full h-full">
               <Image
-                src="/images/profile.jpg"
+                src="/images/NEWprofile.png"
                 alt="Profile Photo"
                 fill
                 className="object-cover rounded-2xl transform-gpu"
